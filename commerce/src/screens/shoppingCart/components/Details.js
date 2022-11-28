@@ -1,9 +1,16 @@
 import react from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 import Texto from '../../../components/Texto'
 
-export default function Details({ car, logo, product, description, price }) {
+export default function Details({
+  car,
+  logo,
+  product,
+  description,
+  price,
+  button
+}) {
   return (
     <>
       <Texto style={style.car}>{car}</Texto>
@@ -13,6 +20,10 @@ export default function Details({ car, logo, product, description, price }) {
       </View>
       <Texto style={style.description}>{description}</Texto>
       <Texto style={style.price}>{price}</Texto>
+
+      <TouchableOpacity style={style.button} onPress={() => {}}>
+        <Texto style={style.textButton}> {button} </Texto>
+      </TouchableOpacity>
     </>
   )
 }
@@ -48,5 +59,18 @@ const style = StyleSheet.create({
     fontSize: 26,
     lineHeight: 42,
     marginTop: 8
+  },
+  button: {
+    marginTop: 16,
+    backgroundColor: '#2a9f85',
+    paddingVertical: 16,
+    borderRadius: 6,
+  },
+  textButton: {
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 16,
+    lineHeight: 26,
+    fontWeight: 'bold'
   }
 })
